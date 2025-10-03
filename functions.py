@@ -23,18 +23,18 @@ say_hello()
 # say_hello(user_name)
 
 
-def area(width = 5, height = 3):
+def area(height, width = 5):
   print(f"The area for {width} and {height} is {width*height}")
 
 area(3,5)
 
 area(9,84)
 
-area()
+area(8)
 
 area(10)
 
-area(height=11)
+# area(height=11)
 
 
 def introduce(name, age):
@@ -61,3 +61,16 @@ show_message()
 print(message)
 
 print(round(5/6, 0))
+
+# "allan" => "Allan"
+def validate_user_input(name, age):
+  name = name.strip().title()
+  try:
+    age = int(age)
+    if age < 0:
+      raise ValueError("Age can't be negative")
+  except ValueError:
+    return None
+  return f"User: {name}, Age: {age}"
+
+print(validate_user_input("   allan    ", "-25"))
